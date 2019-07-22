@@ -9,10 +9,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainLayoutComponent } from './main-layout.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 
 @NgModule({
-  declarations: [HeaderComponent, SidenavComponent, FooterComponent, MainLayoutComponent],
-  exports: [HeaderComponent, SidenavComponent, FooterComponent, MainLayoutComponent],
+  declarations: [HeaderComponent, SidenavComponent, FooterComponent, MainLayoutComponent, ScrollToTopComponent],
+  exports: [HeaderComponent, SidenavComponent, FooterComponent, MainLayoutComponent, ScrollToTopComponent],
   imports: [
     RouterModule,
     CommonModule
