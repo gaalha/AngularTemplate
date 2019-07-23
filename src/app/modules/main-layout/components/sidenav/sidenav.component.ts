@@ -16,12 +16,15 @@ export class SidenavComponent implements OnInit {
     }
 
     ngAfterViewInit() {
-        $("#sidebarToggle, #sidebarToggleTop").on('click', function() {
-            $("body").toggleClass("sidebar-toggled");
-            $(".sidebar").toggleClass("toggled");
-            if ($(".sidebar").hasClass("toggled")) {
+
+        //Toggle sidenav
+        $('#sidebarToggle, #sidebarToggleTop').on('click', function(e) {
+            $('body').toggleClass('sidebar-toggled');
+            $('.sidebar').toggleClass('toggled');
+            if ($('.sidebar').hasClass('toggled')) {
                 $('.sidebar .collapse').collapse('hide');
             };
         });
+        
     }
 }
