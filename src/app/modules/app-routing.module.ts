@@ -6,9 +6,14 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 // Pages
 import { IndexComponent } from './app/components/index/index.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: '',
     component: MainLayoutComponent,
