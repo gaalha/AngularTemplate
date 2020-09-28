@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Layout
-import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { MainLayoutComponent } from './modules/main-layout/main-layout.component';
 
 // Pages
-import { IndexComponent } from './app/components/index/index.component';
-import { LoginComponent } from './login/login.component';
+import { IndexComponent } from './modules/index/index.component';
+import { LoginComponent } from './modules/login/login.component';
 
 
 const routes: Routes = [
