@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var jQuery:any;
-declare var $:any;
+declare var jQuery: any;
+declare var $: any;
 
 @Component({
     selector: 'app-sidenav',
@@ -25,6 +25,6 @@ export class SidenavComponent implements OnInit {
                 $('.sidebar .collapse').collapse('hide');
             };
         });
-        
+
     }
 }

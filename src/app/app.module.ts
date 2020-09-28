@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Modules
-import { AppRoutingModule } from './app-routing.module';
-import { MainLayoutModule } from './modules/main-layout/main-layout.module';
-import { LoginModule } from './modules/login/login.module';
+import { AppRoutingModule } from '~app/app-routing.module';
+import { MainLayoutModule } from '~modules/main-layout/main-layout.module';
+import { LoginModule } from '~modules/login/login.module';
 // Components
-import { AppComponent } from './app.component';
-import { IndexComponent } from './modules/index/index.component';
+import { AppComponent } from '~app/app.component';
+import { IndexComponent } from '~modules/index/index.component';
 
 @NgModule({
   declarations: [

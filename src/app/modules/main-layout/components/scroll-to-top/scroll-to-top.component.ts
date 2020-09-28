@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-declare var jQuery:any;
-declare var $:any;
+declare var jQuery: any;
+declare var $: any;
 
 @Component({
     selector: 'app-scroll-to-top',
