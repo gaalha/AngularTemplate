@@ -1,30 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit, AfterViewInit, ViewChild, Output, EventEmitter,
+} from '@angular/core';
 
 declare var jQuery: any;
 declare var $: any;
 
 @Component({
-    selector: 'app-sidenav',
-    templateUrl: './sidenav.component.html',
-    styleUrls: ['./sidenav.component.scss']
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent implements OnInit, AfterViewInit {
 
-    constructor() { }
+  @ViewChild('mainSidebar', { static: false }) mainSidebar;
 
-    ngOnInit() {
-    }
+  @Output() mainSidebarHeight: EventEmitter<any> = new EventEmitter<any>();
 
-    ngAfterViewInit() {
+  constructor() { }
 
-        //Toggle sidenav
-        $('#sidebarToggle, #sidebarToggleTop').on('click', function(e) {
-            $('body').toggleClass('sidebar-toggled');
-            $('.sidebar').toggleClass('toggled');
-            if ($('.sidebar').hasClass('toggled')) {
-                $('.sidebar .collapse').collapse('hide');
-            };
-        });
+  ngOnInit() {
+  }
 
-    }
+  ngAfterViewInit() {
+    this.mainSidebarHeight.emit(this.mainSidebar.nativeElement.offsetHeight);
+  }
+
 }

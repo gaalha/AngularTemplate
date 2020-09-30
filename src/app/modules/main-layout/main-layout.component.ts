@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-main-layout',
@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLayoutComponent implements OnInit {
 
-  constructor() { }
+  public sidebarMenuOpened = true;
+
+  constructor(
+    private renderer: Renderer2
+  ) { }
 
   ngOnInit() {
+  }
+
+  toggleMenuSidebar() {
+    console.log('sidebarMenuCollapsed', this.sidebarMenuOpened);
+    if (this.sidebarMenuOpened) {
+      this.renderer.removeClass(document.body, 'sidebar-collapse');
+      this.renderer.addClass(document.body, 'sidebar-open');
+      this.sidebarMenuOpened = false;
+    } else {
+      this.renderer.removeClass(document.body, 'sidebar-open');
+      this.renderer.addClass(document.body, 'sidebar-collapse');
+      this.sidebarMenuOpened = true;
+    }
   }
 
 }
