@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { PrivateComponent } from '~pages/private/private.component';
+import { PublicComponent } from '~pages/public/public.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PrivateComponent,
+    component: PublicComponent,
     children: [
       {
-        path: '',
+        path: 'login',
         loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
       },
     ]
