@@ -16,17 +16,16 @@ export class MainLayoutComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleMenuSidebar() {
-    console.log('sidebarMenuCollapsed', this.sidebarMenuOpened);
-    if (this.sidebarMenuOpened) {
-      this.renderer.removeClass(document.body, 'sidebar-collapse');
-      this.renderer.addClass(document.body, 'sidebar-open');
-      this.sidebarMenuOpened = false;
-    } else {
-      this.renderer.removeClass(document.body, 'sidebar-open');
-      this.renderer.addClass(document.body, 'sidebar-collapse');
-      this.sidebarMenuOpened = true;
-    }
-  }
+  // toggleMenuSidebar() {
+  //   if (this.sidebarMenuOpened) {
+  //     this.renderer.removeClass(document.body, 'sidebar-collapse');
+  //     this.renderer.addClass(document.body, 'sidebar-open');
+  //     this.sidebarMenuOpened = false;
+  //   } else {
+  //     this.renderer.removeClass(document.body, 'sidebar-open');
+  //     this.renderer.addClass(document.body, 'sidebar-collapse');
+  //     this.sidebarMenuOpened = true;
+  //   }
+  // }
 
 }
