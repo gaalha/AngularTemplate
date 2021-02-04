@@ -3,22 +3,23 @@ import { NgModule } from '@angular/core';
 
 // Modules
 import { AppRoutingModule } from '~app/app-routing.module';
-import { MainLayoutModule } from '~modules/main-layout/main-layout.module';
-import { LoginModule } from '~modules/login/login.module';
+import { MainLayoutModule } from '~pages/private/main-layout/main-layout.module';
+
 // Components
 import { AppComponent } from '~app/app.component';
-import { IndexComponent } from '~modules/index/index.component';
+import { MoneyPipe } from '~pipes/money.pipe';
+import { SafePipe } from '~pipes/safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    MoneyPipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MainLayoutModule,
-    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

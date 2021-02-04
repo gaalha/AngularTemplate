@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// Layout
-import { MainLayoutComponent } from '~modules/main-layout/main-layout.component';
-
-// Pages
-import { IndexComponent } from '~modules/index/index.component';
-import { LoginComponent } from '~modules/login/login.component';
+import { MainLayoutComponent } from '~pages/private/main-layout/main-layout.component';
+import { DashboardModule } from '~pages/private/dashboard/dashboard.module';
+import { LoginModule } from '~pages/public/login/login.module';
 
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    loadChildren: () => LoginModule,
   },
   {
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: IndexComponent },
+      {
+        path: '',
+        loadChildren: () => DashboardModule,
+      },
       { path: '**', redirectTo: '/'}
     ]
   }

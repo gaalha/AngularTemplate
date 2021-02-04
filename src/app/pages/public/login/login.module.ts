@@ -4,13 +4,14 @@ import { RouterModule } from '@angular/router';
 
 import {LoginComponent} from './login.component';
 
-
 @NgModule({
   declarations: [LoginComponent],
-  exports: [LoginComponent],
   imports: [
-    RouterModule,
+    RouterModule.forChild([{path: '', component: LoginComponent}]),
     CommonModule
+  ],
+  exports: [
+    RouterModule,
   ]
 })
 export class LoginModule { }

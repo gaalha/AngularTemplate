@@ -1,21 +1,14 @@
-import {
-  Component,
-  OnInit, AfterViewInit, ViewChild, Output, EventEmitter,
-} from '@angular/core';
-
-declare var jQuery: any;
-declare var $: any;
+import { Component, OnInit } from '@angular/core';
+import { CONSTANTS } from '~utils/constants';
 
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit, AfterViewInit {
+export class SidenavComponent implements OnInit {
 
-  @ViewChild('mainSidebar', { static: false }) mainSidebar;
-
-  @Output() mainSidebarHeight: EventEmitter<any> = new EventEmitter<any>();
+  public readonly APP_NAME = CONSTANTS.APP_NAME;
 
   public menuList = [
     {
@@ -42,11 +35,6 @@ export class SidenavComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.mainSidebarHeight.emit(this.mainSidebar.nativeElement.offsetHeight);
-  }
+  ngOnInit() {}
 
 }
