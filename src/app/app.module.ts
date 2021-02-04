@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 // Modules
 import { AppRoutingModule } from '~app/app-routing.module';
-import { MainLayoutModule } from '~pages/private/main-layout/main-layout.module';
+// import { MainLayoutModule } from '~pages/private/main-layout/main-layout.module';
 
 // Components
 import { AppComponent } from '~app/app.component';
@@ -19,7 +19,7 @@ import { SafePipe } from '~pipes/safe.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MainLayoutModule,
+    // MainLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
