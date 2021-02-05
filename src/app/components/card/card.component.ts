@@ -19,11 +19,17 @@ export class CardComponent implements OnInit {
 
   @Input() count = 0;
 
-  @Input() title = '';
+  @Input() title = 'Agregar titulo';
 
-  @Input() icon = 'ion ion-pie-graph';
+  /**
+   * Se usan iconos de Fontawesome 5.
+   * Tambien se pueden usar iconos como "Ionicons"
+   */
+  @Input() icon = 'fas fa-chart-pie';
 
-  @Input() url;
+  @Input() footerText = 'Más información';
+
+  @Input() footerUrl;
 
   constructor() { }
 
