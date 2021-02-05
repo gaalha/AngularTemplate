@@ -1,0 +1,27 @@
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">{{ title }}</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <ng-container *ngFor="let item of items">
+
+            <li class="breadcrumb-item" routerLinkActive="active">
+              <ng-container *ngIf="router.url === item?.link; else noActive">
+                {{ item?.title }}
+              </ng-container>
+
+              <ng-template #noActive>
+                <a [routerLink]="item?.link">{{ item?.title }}</a>
+              </ng-template>
+            </li>
+<!--            <li class="breadcrumb-item active">Dashboard v1</li>-->
+          </ng-container>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
