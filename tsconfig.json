@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
+      "~root/*": ["./*"],
       "~app/*": ["app/*"],
       "~models/*": ["app/models/*"],
       "~pages/*": ["app/pages/*"],
