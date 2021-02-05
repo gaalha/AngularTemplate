@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
-import { CardComponent } from './components/card/card.component';
+import {ContentHeaderModule} from '~components/content-header/content-header.module';
+import {CardModule} from '~components/card/card.module';
 
 @NgModule({
-  declarations: [DashboardComponent, CardComponent],
+  declarations: [DashboardComponent],
   imports: [
     RouterModule.forChild([{path: '', component: DashboardComponent}]),
-    CommonModule
+    CommonModule,
+    ContentHeaderModule,
+    CardModule,
   ],
   exports: [
     RouterModule,
