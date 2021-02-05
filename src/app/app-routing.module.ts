@@ -1,17 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-// {
-//   path: '',
-//   loadChildren: () => import('./pages/private/private.module').then(m => m.PrivateModule),
-// },
-
-// {
-//   path: '',
-//     redirectTo: '',
-//   pathMatch: 'full'
-// }
-
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +9,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/public/public.module').then(m => m.PublicModule)
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 
