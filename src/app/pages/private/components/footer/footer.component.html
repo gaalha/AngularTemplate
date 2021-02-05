@@ -1,7 +1,17 @@
 <footer class="main-footer">
-  <strong>AngularTemplate&copy;</strong>
-    &nbsp;<small><a href="https://creativaconsultores.com/" target="_blank">by Creativa Consultores</a></small>
-  <div class="float-right d-none d-sm-inline-block">
-    <strong>Version</strong> 0.9
+  <strong *ngIf="APP_NAME"> {{ APP_NAME }} &copy;</strong>&nbsp;
+
+  <small *ngIf="VENDOR_NAME">
+    <ng-container *ngIf="VENDOR_URL else onlyVendorName">
+      <a [href]="VENDOR_URL" target="_blank">by {{ VENDOR_NAME }}</a>
+    </ng-container>
+  </small>
+
+  <div class="float-right d-none d-sm-inline-block" *ngIf="currentTagVersion">
+    <strong>Versi&oacute;n</strong> {{ currentTagVersion }}
   </div>
 </footer>
+
+<ng-template #onlyVendorName>
+  by {{ VENDOR_NAME }}
+</ng-template>
