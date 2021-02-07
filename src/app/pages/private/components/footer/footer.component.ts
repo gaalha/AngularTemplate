@@ -12,6 +12,8 @@ export class FooterComponent implements OnInit {
 
   public currentTagVersion = 'v0.0.0';
 
+  public currentHash = '';
+
   public readonly APP_NAME = CONSTANTS?.APP_NAME;
 
   public readonly VENDOR_NAME = CONSTANTS?.VENDOR_NAME;
@@ -22,6 +24,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.currentTagVersion = gitInfo?.tag;
+    this.currentHash = gitInfo?.hash;
   }
 
 }
