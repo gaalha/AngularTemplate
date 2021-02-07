@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { PrivateComponent } from './private.component';
-// import {DashboardModule} from '~pages/private/dashboard/dashboard.module';
 
 const routes: Routes = [
   {
@@ -13,7 +12,11 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
       },
-      // { path: '**', redirectTo: '/'}
+      {
+        path: 'text',
+        loadChildren: () => import('./demo-text/demo-text.module').then(m => m.DemoTextModule),
+      },
+      { path: '**', redirectTo: '/'}
     ]
   },
 ];

@@ -17,16 +17,28 @@ export class SidenavComponent implements OnInit {
       link: '/',
       icon: 'fas fa-tachometer-alt',
     },
+    // {
+    //   id: 1,
+    //   title: 'Reportes',
+    //   link: '/text',
+    //   icon: '',
+    // },
     {
       id: 1,
       title: 'Seguridad',
-      link: '/security',
+      link: '',
       icon: 'fas fa-lock',
       childs: [
         {
           id: 1,
           title: 'Administrar usuarios',
           link: '/admin/users',
+          icon: null,
+        },
+        {
+          id: 2,
+          title: 'Demo text',
+          link: '/text',
           icon: null,
         },
       ]

@@ -1,9 +1,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <!-- Brand Logo -->
-  <a href="/" class="brand-link navbar-primary">
+  <a routerLink="/" class="brand-link">
     <span class="logo-mini">
       <img
-        src="../../../../../assets/img/AdminLTELogo.png"
+        src="./assets/img/AdminLTELogo.png"
         alt="AdminLTE Logo"
         class="brand-image img-circle elevation-3"
         style="opacity: 0.8;"
@@ -12,47 +11,77 @@
     <span class="brand-text font-weight-light">{{ APP_NAME }}</span>
   </a>
 
-  <!-- Sidebar -->
   <div class="sidebar">
-    <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+        <!--        <ng-container *ngFor="let menu of menuList">-->
+        <!--          <ng-container *ngIf="!menu?.childs">-->
+        <!--            <app-item-->
+        <!--              [id]="menu?.id"-->
+        <!--              [link]="menu?.link"-->
+        <!--              [icon]="menu?.icon"-->
+        <!--              [title]="menu?.title"></app-item>-->
+        <!--          </ng-container>-->
+
+        <!--          <ng-container *ngIf="menu?.childs">-->
+        <!--            <app-item-->
+        <!--              [id]="menu?.id"-->
+        <!--              [link]="menu?.link"-->
+        <!--              [icon]="menu?.icon"-->
+        <!--              [title]="menu?.title"-->
+        <!--              [hasChild]="true">-->
+
+        <!--              <ul class="nav nav-treeview">-->
+        <!--                <ng-container *ngFor="let child of menu.childs">-->
+        <!--                  <app-item-->
+        <!--                    [id]="child?.id"-->
+        <!--                    [link]="child?.link"-->
+        <!--                    [icon]="child?.icon"-->
+        <!--                    [title]="child?.title"-->
+        <!--                    [isChild]="true"></app-item>-->
+        <!--                </ng-container>-->
+        <!--              </ul>-->
+        <!--            </app-item>-->
+        <!--          </ng-container>-->
+        <!--        </ng-container>-->
+
         <ng-container *ngFor="let menu of menuList">
           <li *ngIf="!menu?.childs" class="nav-item" [id]="menu?.id">
-            <a [routerLink]="menu?.link" class="nav-link" [routerLinkActive]="'active'">
+            <a [routerLink]="menu?.link" class="nav-link" routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}">
               <i *ngIf="menu?.icon; else defaultIcon" [class]="'nav-icon ' + menu?.icon"></i>
               <p>{{ menu.title }}</p>
             </a>
           </li>
 
           <ng-container *ngIf="menu?.childs">
-            <ng-container *ngFor="let child of menu.childs">
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i *ngIf="menu?.icon; else defaultIcon" [class]="'nav-icon ' + menu?.icon"></i>
-                  <p>
-                    {{ menu?.title }}
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
+            <li [class]="'nav-item has-treeview'">
+              <a href="#" class="nav-link">
+                <i *ngIf="menu?.icon; else defaultIcon" [class]="'nav-icon ' + menu?.icon"></i>
+                <p>
+                  {{ menu?.title }}
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
 
-                <ul class="nav nav-treeview">
+              <ul class="nav nav-treeview">
+                <ng-container *ngFor="let child of menu.childs">
                   <li [id]="child?.id" class="nav-item">
-                    <a [routerLink]="child?.link" class="nav-link" [routerLinkActive]="'active'">
+                    <a [routerLink]="child?.link" class="nav-link" routerLinkActive="active">
                       <i *ngIf="child?.icon else defaultIcon" [class]="'nav-icon' + child?.icon"></i>
                       <p>{{ child?.title }}</p>
                     </a>
                   </li>
-                </ul>
-              </li>
-            </ng-container>
+                </ng-container>
+              </ul>
+            </li>
           </ng-container>
         </ng-container>
       </ul>
     </nav>
   </div>
 </aside>
-
 
 <ng-template #defaultIcon>
   <i class="far fa-circle nav-icon"></i>

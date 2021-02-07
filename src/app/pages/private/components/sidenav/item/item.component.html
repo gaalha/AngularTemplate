@@ -1,1 +1,25 @@
-<p>item works!</p>
+<li [class]="'nav-item' + (hasChild ? ' has-treeview' : '')" [id]="id">
+  <a [routerLink]="!hasChild ? link : '#'" class="nav-link">
+    <ng-container *ngIf="icon else defaultIcon">
+      <i [class]="'nav-icon ' + icon"></i>
+    </ng-container>
+
+    <p>
+      &nbsp;{{ title }}
+      <ng-container *ngIf="hasChild">
+        <i class="right fas fa-angle-left"></i>
+      </ng-container>
+    </p>
+  </a>
+
+<!--  <ng-container *ngIf="hasChild || isChild">-->
+
+    <ng-content></ng-content>
+
+<!--  </ng-container>-->
+</li>
+
+
+<ng-template #defaultIcon>
+  <i class="far fa-circle nav-icon"></i>
+</ng-template>
