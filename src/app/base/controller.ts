@@ -1,6 +1,7 @@
 import { PageEvent } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
-export abstract class CrudController {
+export abstract class CrudController<T> {
 
   protected constructor() {
   }
@@ -18,45 +19,52 @@ export abstract class CrudController {
   /**
    * Save the selected value of the pageSizeOptions.
    */
-  abstract pageSize: number;
+  abstract pageSize: number = 20;
 
   /**
    * Contains the fetched data, used to fill mat-table.
    */
-  abstract dataSource: any;
+  abstract dataSource: MatTableDataSource<T>;
 
   abstract pageEvent: PageEvent;
 
-  abstract resultsLength: number;
+  abstract resultsLength: number = 0;
 
   /**
    * Current page number
    */
-  abstract page: number;
+  abstract page: number = 1;
 
   /**
    * Is mat-table loading the data?
    */
-  abstract isLoading: boolean;
+  abstract isLoading: boolean = false;
 
-  abstract isTotalReached: boolean;
+  abstract isTotalReached: boolean = false;
 
-  abstract totalItems: number;
+  abstract totalItems: number = 0;
 
-  abstract search: string;
+  abstract search: string = '';
 
   /**
    * Get paginated data from api for mat-table
    */
   abstract getData(): void;
 
-  abstract edit(data: any): void;
+  abstract edit(data: T): void;
 
   abstract save(): void;
 
-  abstract delete(data: any): void;
+  abstract delete(id: number): void;
 
-  abstract onPaginateChange(event: any): void;
+  protected onPaginateChange(event: any): void {
+    this.page = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
+    this.getData();
+  }
 
-  abstract applyFilter(filterValue: string): void;
+  protected applyFilter(filterValue: string): void{
+    filterValue = filterValue.trim().toLowerCase();
+    this.getData();
+  }
 }
