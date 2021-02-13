@@ -1,6 +1,6 @@
 import { PageEvent } from '@angular/material/paginator';
 
-export abstract class Controller {
+export abstract class CrudController {
 
   protected constructor() {
   }
@@ -8,42 +8,42 @@ export abstract class Controller {
   /**
    * String listo of columns to display in mat-table.
    */
-  public displayedColumns: string[];
+  abstract displayedColumns: string[];
 
   /**
    * Numbers of rows per page show on page size select at the bottom of mat-table.
    */
-  public pageSizeOptions: number[] = [5, 10, 20, 40, 100];
+  readonly pageSizeOptions: number[] = [5, 10, 20, 40, 100];
 
   /**
    * Save the selected value of the pageSizeOptions.
    */
-  public pageSize: number;
+  abstract pageSize: number;
 
   /**
    * Contains the fetched data, used to fill mat-table.
    */
-  public dataSource: any;
+  abstract dataSource: any;
 
-  public pageEvent: PageEvent;
+  abstract pageEvent: PageEvent;
 
-  public resultsLength: number;
+  abstract resultsLength: number;
 
   /**
    * Current page number
    */
-  public page: number;
+  abstract page: number;
 
   /**
    * Is mat-table loading the data?
    */
-  public isLoading: boolean;
+  abstract isLoading: boolean;
 
-  public isTotalReached: boolean;
+  abstract isTotalReached: boolean;
 
-  public totalItems: number;
+  abstract totalItems: number;
 
-  public search: string;
+  abstract search: string;
 
   /**
    * Get paginated data from api for mat-table

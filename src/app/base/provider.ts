@@ -1,11 +1,12 @@
 import { Response } from '~models/response';
 import { Observable } from 'rxjs';
+import {ProviderHeaders} from '~app/base/headers';
 
-export abstract class Provider<T> {
+export abstract class Provider<T> extends ProviderHeaders {
 
-  protected constructor() { }
-
-  public headers: any;
+  protected constructor() {
+    super();
+  }
 
   abstract getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response<T>>;
 
