@@ -27,4 +27,18 @@ export const CONSTANTS = {
    */
   VENDOR_URL: 'https://creativaconsultores.com/',
 
+  API: {
+
+    HOST: 'localhost:4200',
+
+    AUTH: {
+
+      LOGIN: '/login',
+
+      LOGOUT: '/logout',
+
+    }
+
+  }
+
 };

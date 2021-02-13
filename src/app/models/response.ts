@@ -4,7 +4,7 @@
  * @description Interfaz generica para parsear las respuestas del servidor.
  */
 
-export interface Response {
+export interface Response<T> {
 
   /**
    * Define si la solicitud fue satisfactoria.
@@ -22,7 +22,7 @@ export interface Response {
    * Si la solicitud es para obtener información del servidor.
    * Puede ser null.
    */
-  data?: any;
+  data?: T;
 
   /**
    * Contiene el token de sesión.
