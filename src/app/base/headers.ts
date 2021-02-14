@@ -9,4 +9,9 @@ export abstract class ProviderHeaders {
     'Content-Type': 'application/x-www-form-urlencoded',
   });
 
+  protected basePrivateHeaders = new HttpHeaders({
+    // Authorization: 'JWT ' + localStorage.getItem('token')
+    'secret-key': localStorage.getItem('token')
+  });
+
 }
