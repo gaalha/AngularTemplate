@@ -1,5 +1,82 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+// Imports for Angular Material Theming
+// More colors: https://medium.com/@treviergits/angular-material-theme-color-options-7d5968cb7460
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// Light theme
+$light-primary: mat-palette($mat-indigo);
+$light-accent: mat-palette($mat-pink, A200, A100, A400);
+$light-theme: mat-light-theme($light-primary, $light-accent);
+
+// Dark theme
+$dark-primary: mat-palette($mat-pink);
+$dark-accent: mat-palette($mat-indigo, A200, A100, A400);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+
 /* You can add global styles to this file, and also import other style files */
 
 body {
   margin: 0 !important;
+}
+
+/* ANIMACIÓN AL CARGAR UNA PÁGINA */
+.animated {
+  -webkit-animation-duration : 1s;
+  animation-duration         : 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode        : both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name        : fadeIn;
+}
+
+/*
+Styles for mat grids
+*/
+
+.table-container {
+  overflow: auto;
+  height: auto;
+  width: 80vw;
+  margin: 5vh auto 9vh auto !important;
+}
+
+.table-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.01);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
