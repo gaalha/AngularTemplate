@@ -1,16 +1,21 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+
+import {HttpClient} from '@angular/common/http';
 
 import {Provider} from '~app/base/provider';
 import {User} from '~models/user';
 import {Response} from '~models/response';
 import {Observable} from 'rxjs';
+import {CONSTANTS} from '~utils/constants';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends Provider<User>{
+export class UserService extends Provider<User> {
 
-  constructor() {
+  constructor(
+    private http: HttpClient,
+  ) {
     super();
   }
 
@@ -18,8 +23,13 @@ export class UserService extends Provider<User>{
     return undefined;
   }
 
-  getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response<User>> {
-    return undefined;
+  // getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response<User>> {
+  getList(): Observable<Response<User[]>> {
+
+    return this.http.get<Response<User[]>>(
+      `${CONSTANTS.API.HOST}${CONSTANTS.API.USER.LIST}`,
+      {headers: this.basePrivateHeaders}
+    );
   }
 
   getOne(id: number): Observable<Response<User>> {

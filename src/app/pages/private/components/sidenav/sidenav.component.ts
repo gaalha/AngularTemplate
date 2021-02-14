@@ -32,7 +32,7 @@ export class SidenavComponent implements OnInit {
         {
           id: 1,
           title: 'Administrar usuarios',
-          link: '/admin/users',
+          link: '/users',
           icon: null,
         },
         {

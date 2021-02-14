@@ -16,6 +16,10 @@ const routes: Routes = [
         path: 'text',
         loadChildren: () => import('./demo-text/demo-text.module').then(m => m.DemoTextModule),
       },
+      {
+        path: 'users',
+        loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+      },
       { path: '**', redirectTo: '/'}
     ]
   },
