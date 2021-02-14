@@ -1,6 +1,5 @@
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import {Provider} from '~app/base/provider';
 
 export abstract class CrudController<T> {
 

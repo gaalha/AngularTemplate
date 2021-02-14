@@ -29,12 +29,5 @@ import { ItemChildComponent } from './components/sidenav/item-child/item-child.c
     CommonModule,
     PrivateRoutingModule
   ],
-  // exports: [
-  //   PrivateComponent,
-  //   HeaderComponent,
-  //   SidenavComponent,
-  //   FooterComponent,
-  //   ScrollToTopComponent
-  // ],
 })
 export class PrivateModule { }

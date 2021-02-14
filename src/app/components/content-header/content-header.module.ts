@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContentHeaderComponent } from './content-header.component';
 import {RouterModule} from '@angular/router';
+
+import { ContentHeaderComponent } from './content-header.component';
 
 @NgModule({
   declarations: [ContentHeaderComponent],

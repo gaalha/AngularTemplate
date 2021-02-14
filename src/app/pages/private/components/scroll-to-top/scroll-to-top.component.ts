@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 declare var jQuery: any;
 declare var $: any;
@@ -8,7 +8,7 @@ declare var $: any;
     templateUrl: './scroll-to-top.component.html',
     styleUrls: ['./scroll-to-top.component.scss']
 })
-export class ScrollToTopComponent implements OnInit {
+export class ScrollToTopComponent implements OnInit, AfterViewInit {
 
     constructor() { }
 

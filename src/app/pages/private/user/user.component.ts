@@ -1,13 +1,11 @@
 import {ChangeDetectorRef, Component, OnInit, AfterViewInit, AfterViewChecked, ViewChild} from '@angular/core';
 
-import {merge, Observable, of} from 'rxjs';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators';
-
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatDialog} from '@angular/material/dialog';
+
+import {merge, of} from 'rxjs';
+import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 
 import {UserService} from '~providers/user.service';
 import {CrudController} from '~app/base/controller';

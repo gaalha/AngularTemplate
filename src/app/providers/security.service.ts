@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { User } from '~models/user';
 import { FormBodyData } from '~utils/form-body-data';
