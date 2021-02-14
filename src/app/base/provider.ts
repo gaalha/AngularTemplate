@@ -1,5 +1,5 @@
-import { Response } from '~models/response';
-import { Observable } from 'rxjs';
+import {Response} from '~models/response';
+import {Observable} from 'rxjs';
 import {ProviderHeaders} from '~app/base/headers';
 
 export abstract class Provider<T> extends ProviderHeaders {
@@ -8,7 +8,8 @@ export abstract class Provider<T> extends ProviderHeaders {
     super();
   }
 
-  abstract getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response<T>>;
+  // abstract getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response<T>>;
+  abstract getList(): Observable<Response<T[]>>;
 
   abstract getOne(id: number): Observable<Response<T>>;
 
