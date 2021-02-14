@@ -29,7 +29,9 @@ export const CONSTANTS = {
 
   API: {
 
-    HOST: 'localhost:4200',
+    // HOST: 'localhost:4200',
+
+    HOST: 'https://api.jsonbin.io',
 
     AUTH: {
 
@@ -37,7 +39,21 @@ export const CONSTANTS = {
 
       LOGOUT: '/logout',
 
-    }
+    },
+
+    USER: {
+
+      // LIST: '/list',
+
+      LIST: '/b/60287057435c323ba1c5f4bd',
+
+      GET: '/get/:id',
+
+      SAVE: '/save',
+
+      DELETE: '/delete/:id',
+
+    },
 
   }
 
