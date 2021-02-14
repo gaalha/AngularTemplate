@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 
+
 import { PrivateRoutingModule } from '~pages/private/private-routing.module';
 import { PrivateComponent } from './private.component';
 
@@ -27,7 +28,8 @@ import { ItemChildComponent } from './components/sidenav/item-child/item-child.c
   imports: [
     RouterModule,
     CommonModule,
-    PrivateRoutingModule
+    PrivateRoutingModule,
   ],
+  providers: []
 })
 export class PrivateModule { }

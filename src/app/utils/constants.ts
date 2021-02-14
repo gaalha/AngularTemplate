@@ -33,11 +33,13 @@ export const CONSTANTS = {
 
     HOST: 'https://api.jsonbin.io',
 
-    AUTH: {
+    SECURITY: {
 
       LOGIN: '/login',
 
       LOGOUT: '/logout',
+
+      MENU: '/b/602982c56b568373f8c19dc7',
 
     },
 
