@@ -57,13 +57,13 @@ export abstract class CrudController<T> {
 
   abstract delete(id: number): void;
 
-  protected onPaginateChange(event: any): void {
+  public onPaginateChange(event: any): void {
     this.page = event.pageIndex + 1;
     this.pageSize = event.pageSize;
     this.getData();
   }
 
-  protected applyFilter(filterValue: string): void{
+  public applyFilter(filterValue: string): void{
     filterValue = filterValue.trim().toLowerCase();
     this.getData();
   }
