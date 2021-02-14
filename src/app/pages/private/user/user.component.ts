@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit, AfterViewInit, AfterViewChecked, ViewChild} from '@angular/core';
 
-import {merge, of} from 'rxjs';
+import {merge, Observable, of} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 
 import {MatTableDataSource} from '@angular/material/table';
@@ -54,43 +54,57 @@ export class UserComponent extends CrudController<User> implements OnInit, After
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
-    this.getData();
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit');
-    // this.getData();
+    this.callGetData();
   }
 
   ngAfterViewChecked() {
     this.changeDetectorRef.detectChanges();
   }
 
-  getData(): void {
-    console.log('getData');
-    // this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+  callGetData(): void {
+    // TODO: Buscar la forma de hacer toda esta lógica reutilizable.
+    this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
 
-    this.isLoading = true;
-
-    this.userService.getList().subscribe(
-      data => {
-        this.isLoading = false;
-        this.dataSource.data = data?.data;
-      },
-      error => {
-        console.log(error);
-      }
+    merge(this.sort.sortChange, this.paginator.page)
+      .pipe(
+        startWith({}),
+        switchMap(() => {
+          this.isLoading = true;
+          return this.userService.getList(
+            this.sort.active,
+            this.sort.direction,
+            this.pageSize,
+            this.page,
+            this.search
+          );
+        }),
+        map(data => {
+          this.isLoading = false;
+          this.isTotalReached = false;
+          this.totalItems = data.total;
+          return data.data;
+        }),
+        catchError(() => {
+          this.isLoading = false;
+          this.isTotalReached = true;
+          return of([]);
+        })
+      ).subscribe(
+        (data: User[]) => this.dataSource.data = data,
+      error => console.log(error)
     );
   }
 
-  delete(id: number): void {
+  callDelete(id: number): void {
   }
 
-  edit(data: User): void {
+  callEdit(data: User): void {
   }
 
-  save(): void {
+  callSave(): void {
   }
 
 }

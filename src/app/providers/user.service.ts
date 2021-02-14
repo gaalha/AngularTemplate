@@ -23,8 +23,12 @@ export class UserService extends Provider<User> {
     return undefined;
   }
 
-  // getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response<User>> {
-  getList(): Observable<Response<User[]>> {
+  getList(sortActive?: string, order?: string, pageSize?: number, page?: number, search?: string): Observable<Response<User[]>> {
+    console.log('sortActive', sortActive);
+    console.log('order', order);
+    console.log('pageSize', pageSize);
+    console.log('page', page);
+    console.log('search', search);
 
     return this.http.get<Response<User[]>>(
       `${CONSTANTS.API.HOST}${CONSTANTS.API.USER.LIST}`,

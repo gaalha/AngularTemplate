@@ -1,36 +1,35 @@
 <app-content-header title="Mantenimiento de usuarios"
-                    [items]="[{title: 'Home', link: ''}, {title: 'Users', link: '/users'}]"></app-content-header>
+                    [items]="[{title: 'Inicio', link: ''}, {title: 'Usuarios', link: '/users'}]"></app-content-header>
 
 <section class="content">
   <div class="container-fluid animated fadeIn">
     <div class="row">
       <div class="col-12">
         <mat-card>
-          <mat-card-header>
-            <!--            <mat-card-title>Clients</mat-card-title>-->
-            <!--            <mat-card-subtitle>Add, update or delete users</mat-card-subtitle>-->
-          </mat-card-header>
-
           <mat-card-content>
             <div class="table-loading-shade" *ngIf="isLoading">
               <mat-spinner *ngIf="isLoading"></mat-spinner>
             </div>
 
-            <div class="table-header">
-              <!--              <mat-form-field class="filter-field">-->
-              <!--                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by name, age or gender"-->
-              <!--                       [(ngModel)]="search">-->
-              <!--                <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear"-->
-              <!--                        (click)="search=''; applyFilter('')">-->
-              <!--                  <mat-icon>close</mat-icon>-->
-              <!--                </button>-->
-              <!--              </mat-form-field>-->
+            <div class="row">
+              <div class="col-9">
+                <button mat-raised-button (click)="callSave()" style="margin-bottom: 15px;" color="primary">
+                  <mat-icon>add</mat-icon>
+                  Agregar usuario
+                </button>
+              </div>
 
-              <!-- Add button -->
-              <button mat-raised-button (click)="save()" style="margin-bottom: 15px;" color="primary">
-                <mat-icon>add</mat-icon>
-                Add user
-              </button>
+              <div class="col-3">
+                <mat-form-field class="filter-field float-right" style="width: 100%;">
+                  <label>
+                    <input (keyup)="applyFilter(search)" [(ngModel)]="search" matInput placeholder="Buscar ...">
+                  </label>
+                  <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear"
+                          (click)="search=''; applyFilter('')">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
             </div>
 
             <mat-table #table [dataSource]="dataSource" class="person-table" matSort matSortActive="id"
@@ -39,22 +38,22 @@
               <!-- Table content -->
               <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>No.</mat-header-cell>
-                <mat-cell *matCellDef="let row; let i = index;"> {{ i + 1 }} </mat-cell>
+                <mat-cell *matCellDef="let i = index;"> {{ i + 1 }} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="username">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{ row.username }}</mat-cell>
+                <mat-cell *matCellDef="let row">{{ row?.username }}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="email">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{ row.email }}</mat-cell>
+                <mat-cell *matCellDef="let row">{{ row?.email }}</mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="createdAt">
                 <mat-header-cell *matHeaderCellDef>Created at</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{ row.createdAt | date:'dd/MM/yyyy' }}</mat-cell>
+                <mat-cell *matCellDef="let row">{{ row?.createdAt | date:'dd/MM/yyyy' }}</mat-cell>
               </ng-container>
 
               <!-- Table actions -->
@@ -64,16 +63,17 @@
                 </mat-header-cell>
 
                 <mat-cell *matCellDef="let row">
-
                   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Click to see more actions">
                     <i class="material-icons">more_vert</i>
                   </button>
+
                   <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="edit(row)">
+                    <button mat-menu-item (click)="callEdit(row)">
                       <mat-icon aria-label="Edit">create</mat-icon>
                       Edit
                     </button>
-                    <button mat-menu-item (click)="delete(row)">
+
+                    <button mat-menu-item (click)="callDelete(row)">
                       <mat-icon aria-label="Delete">clear</mat-icon>
                       Delete
                     </button>

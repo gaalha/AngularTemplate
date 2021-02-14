@@ -45,7 +45,7 @@ export const CONSTANTS = {
 
       // LIST: '/list',
 
-      LIST: '/b/60287057435c323ba1c5f4bd',
+      LIST: '/b/60287057435c323ba1c5f4bd/1',
 
       GET: '/get/:id',
 

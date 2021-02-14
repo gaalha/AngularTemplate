@@ -1,5 +1,6 @@
 import { PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import {Provider} from '~app/base/provider';
 
 export abstract class CrudController<T> {
 
@@ -7,7 +8,7 @@ export abstract class CrudController<T> {
   }
 
   /**
-   * String listo of columns to display in mat-table.
+   * String list of columns to display in mat-table.
    */
   abstract displayedColumns: string[];
 
@@ -49,22 +50,23 @@ export abstract class CrudController<T> {
   /**
    * Get paginated data from api for mat-table
    */
-  abstract getData(): void;
+  abstract callGetData(): void;
 
-  abstract edit(data: T): void;
+  abstract callEdit(data: T): void;
 
-  abstract save(): void;
+  abstract callSave(): void;
 
-  abstract delete(id: number): void;
+  abstract callDelete(id: number): void;
 
   public onPaginateChange(event: any): void {
     this.page = event.pageIndex + 1;
     this.pageSize = event.pageSize;
-    this.getData();
+    this.callGetData();
   }
 
   public applyFilter(filterValue: string): void{
     filterValue = filterValue.trim().toLowerCase();
-    this.getData();
+    this.callGetData();
   }
+
 }

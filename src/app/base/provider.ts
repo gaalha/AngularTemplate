@@ -8,8 +8,7 @@ export abstract class Provider<T> extends ProviderHeaders {
     super();
   }
 
-  // abstract getList(sortActive: string, order: string, pageSize: number, page: number, search: string): Observable<Response<T>>;
-  abstract getList(): Observable<Response<T[]>>;
+  abstract getList(sortActive?: string, order?: string, pageSize?: number, page?: number, search?: string): Observable<Response<T[]>>;
 
   abstract getOne(id: number): Observable<Response<T>>;
 
