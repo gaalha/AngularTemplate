@@ -10,7 +10,7 @@ export interface User {
 
   firstname: string;
 
-  lastName: string;
+  lastname: string;
 
   createdAt: string;
 
