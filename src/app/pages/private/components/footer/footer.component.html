@@ -1,9 +1,9 @@
 <footer class="main-footer">
-  <strong *ngIf="APP_NAME"> {{ APP_NAME }} &copy;</strong>&nbsp;
+  <strong *ngIf="APP_INFO.NAME"> {{ APP_INFO.NAME }} &copy;</strong>&nbsp;
 
-  <small *ngIf="VENDOR_NAME">
-    <ng-container *ngIf="VENDOR_URL else onlyVendorName">
-      <a [href]="VENDOR_URL" target="_blank">by {{ VENDOR_NAME }}</a>
+  <small *ngIf="APP_INFO.VENDOR.NAME">
+    <ng-container *ngIf="APP_INFO.VENDOR.URL else onlyVendorName">
+      <a [href]="APP_INFO.VENDOR.URL" target="_blank">by {{ APP_INFO.VENDOR.NAME }}</a>
     </ng-container>
   </small>
 
@@ -13,5 +13,5 @@
 </footer>
 
 <ng-template #onlyVendorName>
-  by {{ VENDOR_NAME }}
+  by {{ APP_INFO.VENDOR.NAME }}
 </ng-template>

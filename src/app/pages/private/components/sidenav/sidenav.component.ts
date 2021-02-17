@@ -11,7 +11,7 @@ import {Menu} from '~models/menu';
 })
 export class SidenavComponent implements OnInit {
 
-  public readonly APP_NAME = CONSTANTS.APP_NAME;
+  public readonly APP_NAME = CONSTANTS.APP_INFO.NAME;
 
   public menuData: Menu[] = [];
 

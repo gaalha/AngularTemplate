@@ -28,9 +28,8 @@ export class SecurityService extends ProviderHeaders {
 
     return this.http.post<Response<User>>(
       `${this.API.HOST}${this.API.SECURITY.LOGIN}`, body.toString(),
-      { headers: this.basePostHeaders}
+      { headers: this.publicPostUrlencodedHeaders }
     );
-
   }
 
   logout() {
@@ -42,7 +41,7 @@ export class SecurityService extends ProviderHeaders {
 
     return this.http.get<Response<Menu[]>>(
       `${this.API.HOST}${this.API.SECURITY.MENU}`,
-      { headers: this.basePrivateHeaders}
+      { headers: this.privateHeaders }
     );
   }
 

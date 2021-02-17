@@ -8,7 +8,7 @@ import {merge, of} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 
 import {UserService} from '~providers/user.service';
-import {CrudController} from '~app/base/controller';
+import {CrudController} from '~app/base/crud-controller';
 import {User} from '~models/user';
 
 @Component({
@@ -71,13 +71,7 @@ export class UserComponent extends CrudController<User> implements OnInit, After
         startWith({}),
         switchMap(() => {
           this.isLoading = true;
-          return this.userService.getList(
-            this.sort.active,
-            this.sort.direction,
-            this.pageSize,
-            this.page,
-            this.search
-          );
+          return this.userService.list();
         }),
         map(data => {
           this.isLoading = false;

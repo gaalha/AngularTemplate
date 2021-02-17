@@ -9,23 +9,31 @@
 
 export const CONSTANTS = {
 
-  /**
-   * Requerida no eliminar, dejar vacia o null.
-   * Se usa en el sidenav-component y en el footer-component
-   */
-  APP_NAME: 'AngularTemplate',
+  APP_INFO: {
 
-  /**
-   * Requerida no eliminar, dejar vacia o null
-   * Se usa en el footer-component
-   */
-  VENDOR_NAME: 'Creativa Consultores',
+    /**
+     * Requerida no eliminar la definición, dejar vacia o null.
+     * Se usa en el sidenav-component y en el footer-component
+     */
+    NAME: 'AngularTemplate',
 
-  /**
-   * Requerida no eliminar, dejar vacia o null
-   * Se usa en el footer-component
-   */
-  VENDOR_URL: 'https://creativaconsultores.com/',
+    VENDOR: {
+
+      /**
+       * Requerida no eliminar, dejar vacia o null
+       * Se usa en el footer-component
+       */
+      NAME: 'Creativa Consultores',
+
+      /**
+       * Requerida no eliminar, dejar vacia o null
+       * Se usa en el footer-component
+       */
+      URL: 'https://creativaconsultores.com/',
+
+    },
+
+  },
 
   API: {
 

@@ -14,11 +14,7 @@ export class FooterComponent implements OnInit {
 
   public currentHash = '';
 
-  public readonly APP_NAME = CONSTANTS?.APP_NAME;
-
-  public readonly VENDOR_NAME = CONSTANTS?.VENDOR_NAME;
-
-  public readonly VENDOR_URL = CONSTANTS?.VENDOR_URL;
+  public readonly APP_INFO = CONSTANTS.APP_INFO;
 
   constructor() { }
 
