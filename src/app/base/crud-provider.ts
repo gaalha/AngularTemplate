@@ -6,7 +6,15 @@ import {QueryOptions} from '~utils/query-options';
 import {ProviderHeaders} from '~app/base/headers';
 
 /**
- * Servicio generico para la creación de CRUDs
+ * Servicio generico para la creación de CRUDs, la idea es reutilizarlo en todos los CRUDs, para ello las acciones basicas de un CRUD
+ * deben tener el mismo endpoint en el API pero con diferente verbos http, así:
+ * - POST '/api/user -> create/update
+ * - GET '/api/user -> get all
+ * - GET '/api/user/:id -> get one
+ * - DELETE '/api/user/:id -> delete one
+ *
+ * Si se respeta esto sólo es necesario pasarle '/api/user' a este servicio cuando se extiende.
+ * El servicio agregará el '/:id' en get one y delete.
  */
 
 export class CrudProvider<T> extends ProviderHeaders {
@@ -42,7 +50,7 @@ export class CrudProvider<T> extends ProviderHeaders {
    */
   one(id: number): Observable<Response<T>> {
     return this.httpClient.get<Response<T>>(
-      `${this.url}${this.endpoint.replace(':id', String(id))}`,
+      `${this.url}${this.endpoint}/${id}`,
       { headers: this.privateHeaders }
     );
   }
@@ -68,7 +76,7 @@ export class CrudProvider<T> extends ProviderHeaders {
    */
   delete(id: number): Observable<Response<T>> {
     return this.httpClient.delete<Response<T>>(
-      `${this.url}${this.endpoint.replace(':id', String(id))}`,
+      `${this.url}${this.endpoint}/${id}`,
       { headers: this.privateHeaders }
     );
   }
