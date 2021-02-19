@@ -15,6 +15,8 @@ import {ProviderHeaders} from '~app/base/headers';
  *
  * Si se respeta esto sólo es necesario pasarle '/api/user' a este servicio cuando se extiende.
  * El servicio agregará el '/:id' en get one y delete.
+ *
+ * Referencia: https://medium.com/better-programming/a-generic-http-service-approach-for-angular-applications-a7bd8ff6a068
  */
 
 export class CrudProvider<T> extends ProviderHeaders {

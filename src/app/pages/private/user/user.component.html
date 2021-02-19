@@ -1,5 +1,6 @@
 <app-content-header title="Mantenimiento de usuarios"
-                    [items]="[{title: 'Inicio', link: ''}, {title: 'Usuarios', link: '/users'}]"></app-content-header>
+                    [items]="[{title: 'Inicio', link: ''}, {title: 'Usuarios', link: '/users'}]">
+</app-content-header>
 
 <section class="content">
   <div class="container-fluid animated fadeIn">
@@ -32,7 +33,7 @@
               </div>
             </div>
 
-            <mat-table #table [dataSource]="dataSource" class="person-table" matSort matSortActive="id"
+            <mat-table [dataSource]="dataSource" class="person-table" matSort matSortActive="id"
                        matSortDisableClear
                        matSortDirection="desc">
               <!-- Table content -->

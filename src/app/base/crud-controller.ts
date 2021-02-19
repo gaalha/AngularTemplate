@@ -19,7 +19,7 @@ export abstract class CrudController<T> {
   /**
    * Save the selected value of the pageSizeOptions.
    */
-  abstract pageSize: number = 20;
+  abstract pageSize = 20;
 
   /**
    * Contains the fetched data, used to fill mat-table.
@@ -28,23 +28,23 @@ export abstract class CrudController<T> {
 
   abstract pageEvent: PageEvent;
 
-  abstract resultsLength: number = 0;
+  abstract resultsLength = 0;
 
   /**
    * Current page number
    */
-  abstract page: number = 1;
+  abstract page = 1;
 
   /**
    * Is mat-table loading the data?
    */
-  abstract isLoading: boolean = false;
+  abstract isLoading = false;
 
-  abstract isTotalReached: boolean = false;
+  abstract isTotalReached = false;
 
-  abstract totalItems: number = 0;
+  abstract totalItems = 0;
 
-  abstract search: string = '';
+  abstract search = '';
 
   /**
    * Get paginated data from api for mat-table
